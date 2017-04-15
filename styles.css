@@ -6,3 +6,7 @@ body{
   color: tomato;
   text-align: center;
 }
+
+.dottedBorder{
+ border: 1px dotted teal;
+}
