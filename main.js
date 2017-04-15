@@ -81,7 +81,7 @@ for (var i = 0; i < batFamily.length; i++) {
    newFamilyMember += `<img src="${currentMember.image}">`;
    newFamilyMember += `<h3>${currentMember.title}</h3>`
    newFamilyMember += `<div class="caption">`;
-   newFamilyMember += `<section id="bio">${currentMember.bio}</section><br>`
+   newFamilyMember += `<p class="bio">${currentMember.bio}</p><br>`
    newFamilyMember += `<p>Birth: ${currentMember.lifespan.birth}</p>`
    newFamilyMember += `<p>Death: ${currentMember.lifespan.death}</p>`
    newFamilyMember += `</div></div></div>`;
@@ -94,6 +94,15 @@ $output.on("click", ".person_container", function(e) {
   $(this).addClass("dottedBorder");
   $("#user_input").val("").focus();
 })
+
+$("#user_input").keyup(mirrorText);
+
+function mirrorText(e) {
+  var selectedCard = $(".dottedBorder");
+  var bioTyped = $("#user_input").val();
+  var bio = $(".dottedBorder").find("p.bio");
+  bio.html(bioTyped);
+}
 
 
 
